@@ -4,14 +4,14 @@ import Button from '../components/Button'
 import { useNavigate } from 'react-router-dom'
 
 
-function AddNewUser() {
+function EditUser() {
     const[value,setValue] = useState({
         name:"",
         email:""
     })
     const navigate = useNavigate()
 
-    const handleAddUser = ()=>{
+    const handleEditUser = ()=>{
         setValue({name:" ", email:" "})
         console.log(value)
         navigate("/")
@@ -30,11 +30,11 @@ function AddNewUser() {
         value={value.email}
         onChange={(e)=>setValue({...value,email:e.target.value})}
         />
-        <Button onClick={handleAddUser}>
-            Submit
+        <Button onClick={handleEditUser}>
+            Update
         </Button>
     </div>
   )
 }
 
-export default AddNewUser
+export default EditUser

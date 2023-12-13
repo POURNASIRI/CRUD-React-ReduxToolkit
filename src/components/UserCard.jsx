@@ -1,9 +1,10 @@
 
 import { MdDeleteSweep } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 
-function UserCard({name,email}) {
+function UserCard({name,email,id}) {
   return (
     <div className="flex items-center justify-between bg-gray-300 p-5 rounded-md">
        <div>
@@ -15,7 +16,9 @@ function UserCard({name,email}) {
             <MdDeleteSweep size={30}/>
         </button>
         <button>
+          <Link to={`/editUser/${id}`}>
             <FaEdit size={25}/>
+          </Link>
         </button>
        </div>
     </div>
