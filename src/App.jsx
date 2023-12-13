@@ -1,5 +1,6 @@
 import { Route, Routes } from "react-router-dom"
 import Home from "./pages/Home"
+import AddNewUser from "./pages/AddNewUser"
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <h1 className="text-center my-4 font-bold text-2xl">CRUD App With Redux Toolkit</h1>
       <Routes>
         <Route path="/" element={<Home/>}/>
+        <Route path="/addUser" element={<AddNewUser/>}/>
       </Routes>
     </div>
   )
