@@ -22,13 +22,19 @@ const userslice = createSlice({
         },
         editUser(state,action){
 
-            const {name,email,id} = action.payload
+        const {name,email,id} = action.payload
           const selectUser = state.user.find(user=>user.id === Number(id))
 
           if(selectUser){
             selectUser.name = name,
             selectUser.email = email
           }
+        },
+        deleteUser(state,action){
+            const selectUser = state.user.find(user=>user.id === Number(action.payload))
+           if(selectUser){
+            state.user = state.user.filter(user=>user.id !== Number(action.payload))
+           }
         }
         }
         
@@ -36,4 +42,4 @@ const userslice = createSlice({
 
 export default userslice.reducer
 
-export const {addUser,editUser} = userslice.actions
+export const {addUser,editUser,deleteUser} = userslice.actions

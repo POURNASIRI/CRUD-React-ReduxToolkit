@@ -2,9 +2,14 @@
 import { MdDeleteSweep } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { deleteUser } from "../feature/user/userslice";
 
 
 function UserCard({name,email,id}) {
+
+    const dispatch = useDispatch()
+
   return (
     <div className="flex items-center justify-between bg-gray-300 p-5 rounded-md">
        <div>
@@ -12,7 +17,7 @@ function UserCard({name,email,id}) {
             <span className="font-normal text-gray-600">{email}</span>
        </div>
        <div className="flex gap-3 items-center">
-        <button>
+        <button onClick={()=>dispatch(dispatch(deleteUser(id)))}>
             <MdDeleteSweep size={30}/>
         </button>
         <button>

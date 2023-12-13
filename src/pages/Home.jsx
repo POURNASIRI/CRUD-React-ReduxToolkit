@@ -6,12 +6,14 @@ import { Link } from 'react-router-dom'
 
 function Home() {
   return (
-    <Link to={'/addUser'}>
-      <Button>
-        Add User
-      </Button>
-      <UserList/>
-    </Link>
+    <div>
+      <Link to={'/addUser'}>
+        <Button>
+          Add User
+        </Button>
+      </Link>
+        <UserList/>
+    </div>
   )
 }
 
