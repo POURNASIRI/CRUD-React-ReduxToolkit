@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import TextField from '../components/TextField'
 import Button from '../components/Button'
 import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { addUser } from '../feature/user/userslice'
 
 
 function AddNewUser() {
+
+    const dispatch = useDispatch()
     const[value,setValue] = useState({
         name:"",
         email:""
@@ -13,7 +17,11 @@ function AddNewUser() {
 
     const handleAddUser = ()=>{
         setValue({name:" ", email:" "})
-        console.log(value)
+        dispatch(addUser({
+            id:Math.floor(Math.random() * 1000),
+            name:value.name,
+            email:value.email
+        }))
         navigate("/")
     }
   return (

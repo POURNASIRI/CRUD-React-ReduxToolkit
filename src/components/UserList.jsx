@@ -1,13 +1,11 @@
+import { useSelector } from "react-redux"
 import UserCard from "./UserCard"
 
 
 function UserList() {
-    const users=[
-        {id: '1', name:'erfan',email:"erfanpournasiri71@gmail.com"},
-        {id: '2', name:'arman',email:"arman.pm71@gmail.com"},
-    ]
+    const {user} = useSelector(state=>state.user)
 
-    const renderCard = () => users.map(user=>(
+    const renderCard = () => user.map(user=>(
         <div key={user.id}>
             <UserCard 
             name={user.name}
@@ -18,7 +16,7 @@ function UserList() {
     ) )
   return (
     <div className="grid gap-5 font-semibold md:grid-cols-2">
-        {users.length ? renderCard(): 
+        {user.length ? renderCard(): 
         <p className="text-center 
         col-span-2
         font-bold
